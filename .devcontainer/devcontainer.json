@@ -1,0 +1,20 @@
+{
+    "name": "C++",
+    "image": "jungheil/cpp-dev:test1",
+    "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    "settings": {},
+    "extensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "xaver.clang-format"
+    ],
+    "remoteUser": "root",
+    "mounts": [
+        "source=$HOME/vs-extensions,target=/root/.vscode-server/extensions,type=volume",
+        // And/or for VS Code Insiders
+        "source=$HOME/vs-extensions,target=/root/.vscode-server-insiders/extensions,type=volume",
+    ]
+}
