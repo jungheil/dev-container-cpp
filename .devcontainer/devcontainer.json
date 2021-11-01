@@ -1,20 +1,34 @@
 {
-    "name": "C++",
-    "image": "jungheil/cpp-dev:test1",
+    "name": "dev-container-cpp",
+    "image": "jungheil/dev-container-cpp",
     "runArgs": [
+        "--network=host",
         "--cap-add=SYS_PTRACE",
         "--security-opt",
-        "seccomp=unconfined"
+        "seccomp=unconfined",
     ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}"
+        // "DISPLAY": "host.docker.internal:10.0"
+    },
     "settings": {},
     "extensions": [
-        "ms-vscode.cpptools-extension-pack",
-        "xaver.clang-format"
+        "ms-vscode.cpptools",
+        "austin.code-gnu-global",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "xaver.clang-format",
+        "vsciot-vscode.vscode-arduino",
+        "formulahendry.code-runner",
+        "ajshort.include-autocomplete",
+        "streetsidesoftware.code-spell-checker",
+        "oderwat.indent-rainbow",
+        "coenraads.bracket-pair-colorizer-2",
+        "hookyqr.beautify",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "wayou.vscode-todo-highlight",
+        "gruntfuggly.todo-tree"
     ],
     "remoteUser": "root",
-    "mounts": [
-        "source=$HOME/vs-extensions,target=/root/.vscode-server/extensions,type=volume",
-        // And/or for VS Code Insiders
-        "source=$HOME/vs-extensions,target=/root/.vscode-server-insiders/extensions,type=volume",
-    ]
 }
