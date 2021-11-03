@@ -19,8 +19,7 @@ RUN apt update && apt upgrade && \
     echo 'root:root' | chpasswd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' \
     /etc/ssh/sshd_config && \
-    sed -i 's/#Port 22/Port 10822/' \
-    /etc/ssh/sshd_config && \
+    sed -i 's/#Port 22/Port 10822/' /etc/ssh/sshd_config && \
     mkdir /run/sshd
 
 RUN apt update && apt upgrade && \
@@ -55,4 +54,5 @@ RUN apt update && apt upgrade && \
 #     rm -rf ~/install
 
 EXPOSE 10822
+
 CMD [ "/root/entrypoint.sh" ]

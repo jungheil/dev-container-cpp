@@ -2,8 +2,7 @@ FROM jungheil/dev-container-cpp
 
 ARG OPENCV_VERSION=4.5.4
 
-RUN \
-    add-apt-repository "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main" && \
+RUN add-apt-repository "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main" && \
     apt update && apt upgrade && \
     apt install -y libgtk2.0-dev libavcodec-dev \
     libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev \
@@ -20,5 +19,5 @@ RUN \
     echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opencv4/lib/pkgconfig" >> /etc/bash.bashrc && \
     echo "export PKG_CONFIG_PATH" >> /etc/bash.bashrc && \
     rm -rf $HOME/install/opencv/ $HOME/install/opencv_contrib/ && \
-    apt-get autoclean -y && apt-get autoremove -y && \
-    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* 
+    apt autoclean -y && apt autoremove -y && \
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
